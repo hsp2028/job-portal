@@ -11,7 +11,7 @@ const filterData = [
   },
   {
     filterType: "Role",
-    array: ["Frontend Developer", "Backend Developer", "Fullstack Developer"],
+    array: ["Frontend Developer", "Backend Developer", "Fullstack Developer", "Data Scientist"],
   },
   {
     filterType: "Salary",
