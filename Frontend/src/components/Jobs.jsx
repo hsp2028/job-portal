@@ -5,7 +5,6 @@ import Job from "./Job";
 import { Space } from "lucide-react";
 import { useSelector } from "react-redux";
 import store from "../redux/store";
-import e from "cors";
 import useGetAllJobs from "../hooks/useGetAllJobs";
 
 const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
