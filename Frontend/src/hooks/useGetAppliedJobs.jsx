@@ -20,5 +20,5 @@ export default function useGetAppliedJobs() {
         }
     }
     fetchAppliedJobs();
-  })
+  }, [dispatch])
 }
