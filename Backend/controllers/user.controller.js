@@ -188,8 +188,10 @@ export const updateProfile = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log("Catch error");
-    
-    console.log(error);
+    console.error("Profile update failed:", error);
+    return res.status(500).json({
+      message: "Profile update failed. Check the selected files and try again.",
+      success: false,
+    });
   }
 };
