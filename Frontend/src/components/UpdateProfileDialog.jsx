@@ -109,7 +109,7 @@ export default function UpdateProfileDialog({ open, setOpen }) {
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
-          className="sm:max-w-md"
+          className="max-h-[90dvh] overflow-y-auto sm:max-w-md"
           // onInteractOutside={() => setOpen(false)}
         >
           <DialogHeader>
@@ -117,6 +117,28 @@ export default function UpdateProfileDialog({ open, setOpen }) {
           </DialogHeader>
           <form onSubmit={submitHandler}>
             <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <Label htmlFor="profilePhoto" className="text-right">
+                  Profile photo
+                </Label>
+                <div className="col-span-3 flex items-center gap-3">
+                  {photoPreview && (
+                    <img
+                      src={photoPreview}
+                      alt="Profile preview"
+                      className="h-12 w-12 rounded-full object-cover"
+                    />
+                  )}
+                  <Input
+                    id="profilePhoto"
+                    name="profilePhotoFile"
+                    type="file"
+                    accept="image/*"
+                    onChange={fileChangeHandler}
+                    className="min-w-0"
+                  />
+                </div>
+              </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="fullname" className="text-right">
                   Name
@@ -183,28 +205,6 @@ export default function UpdateProfileDialog({ open, setOpen }) {
                   name="skills"
                   className="p-2  border border-black rounded-2xl outline-none transition-all duration-200  focus:border-[#7209b7] focus:shadow-lg col-span-3"
                 />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-4">
-                <Label htmlFor="profilePhoto" className="text-right">
-                  Profile photo
-                </Label>
-                <div className="col-span-3 flex items-center gap-3">
-                  {photoPreview && (
-                    <img
-                      src={photoPreview}
-                      alt="Profile preview"
-                      className="h-12 w-12 rounded-full object-cover"
-                    />
-                  )}
-                  <Input
-                    id="profilePhoto"
-                    name="profilePhotoFile"
-                    type="file"
-                    accept="image/*"
-                    onChange={fileChangeHandler}
-                    className="min-w-0"
-                  />
-                </div>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="file" className="text-right">
