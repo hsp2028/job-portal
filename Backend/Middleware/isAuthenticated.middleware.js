@@ -10,17 +10,23 @@ const isAuthenticated = async (req, res, next) =>{
             })
         }
         const decode = await jwt.verify(token, process.env.SECRET_KEY);
-        if(!decode){
+        if (!decode || !decode.userId) {
             return res.status(401).json({
-                message:"Invalid toekn",
-                success:false
+            message:"Invalid token",
+            success:false,
+            status:false,
             })
         }
         req.id = decode.userId;
         next();
     }
     catch(err){
-        console.log("Error: ", err);
+        console.error("Authentication failed:", err.message);
+        return res.status(401).json({
+            message: "Invalid or expired token",
+            success: false,
+            status: false,
+        });
     }
 }
 
