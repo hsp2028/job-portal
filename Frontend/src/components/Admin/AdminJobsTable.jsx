@@ -69,7 +69,7 @@ export default function AdminJobsTable() {
                         <PopoverContent className="w-32">
                           <div
                             onClick={() =>
-                              navigate(`/admin/jobs/${job._id}`)
+                              navigate(`/admin/companies/${job._id}`)
                             }
                             className="flex items-center gap-2 w-fit cursor-pointer"
                           >
